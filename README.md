@@ -78,12 +78,15 @@ Let the music play! 🎶✨
 This project is configured to deploy to **GitHub Pages** using the `gh-pages` branch.
 
 ### 1. Configure Repository Settings
+
 Ensure your repository is public (or that you have access to GitHub Pages for private repos with a proper plan). In GitHub:
+
 - Go to Settings > Pages
 - Set Source to `Deploy from a branch`
 - Select branch: `gh-pages` and folder: `/ (root)`
 
 ### 2. Deployment Scripts
+
 The following npm scripts are available:
 
 ```
@@ -92,17 +95,19 @@ npm run deploy      # Publishes the dist/ folder to gh-pages branch
 ```
 
 ### 3. Deploy
+
 ```
 npm run deploy
 ```
 
 ### 4. Access Your Site
+
 Visit: `https://<your-username>.github.io/musically/`
 
 If you fork/rename the repo, update `base` in `vite.config.js` accordingly.
 
 ### 5. Troubleshooting
+
 - Blank page? Confirm the `base` path matches the repository name.
 - Old assets? Force refresh (Ctrl+F5) or clear cache; GitHub Pages can cache aggressively.
 - 404 on refresh of a client route: GitHub Pages serves static files only. Consider adding a `404.html` copy of `index.html` if deep links are important.
-
