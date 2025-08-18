@@ -2,10 +2,13 @@
   "name": "musically",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://govardhanenitin.github.io/musically/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "rimraf dist && vite build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
@@ -23,6 +26,7 @@
     "@vitejs/plugin-react": "^1.3.0",
     "autoprefixer": "^10.4.7",
     "eslint": "^8.18.0",
+    "rimraf": "^5.0.5",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
