@@ -6,20 +6,31 @@ import { FreeMode } from "swiper";
 
 import PlayPause from "./PlayPause";
 import { playPause, setActiveSong } from "../redux/features/playerSlice";
-import { useGetTopChartsQuery } from '../redux/services/theAudioDb';
+import { useGetTopChartsQuery } from "../redux/services/theAudioDb";
 
-import 'swiper/css';
-import 'swiper/css/free-mode';
+import "swiper/css";
+import "swiper/css/free-mode";
 
-const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handlePlayClick }) => (
+const TopChartCard = ({
+  song,
+  i,
+  isPlaying,
+  activeSong,
+  handlePauseClick,
+  handlePlayClick,
+}) => (
   <div
     className={`w-full flex flex-row items-center hover:bg-[#4c426e] ${
-      activeSong?.title === song?.title ? 'bg-[#4c426e]' : 'bg-transparent'
+      activeSong?.title === song?.title ? "bg-[#4c426e]" : "bg-transparent"
     } py-2 p-4 rounded-lg cursor-pointer mb-2`}
   >
     <h3 className="font-bold text-base text-white mr-3">{i + 1}.</h3>
     <div className="flex-1 flex flex-row justify-between items-center">
-      <img className="w-10 h-10 rounded-lg" src={song?.strTrackThumb} alt={song?.strTrack} />
+      <img
+        className="w-10 h-10 rounded-lg"
+        src={song?.strTrackThumb}
+        alt={song?.strTrack}
+      />
       <div className="flex-1 flex flex-col justify-center mx-3">
         <Link to={`/songs/${song.idTrack}`}>
           <p className="font-bold text-white">{song?.strTrack}</p>
@@ -46,10 +57,10 @@ const TopPlay = () => {
   const divRef = useRef(null);
 
   useEffect(() => {
-    divRef.current.scrollIntoView({ behavior: 'smooth' });
+    divRef.current.scrollIntoView({ behavior: "smooth" });
   });
 
-  const topPlays = data?.loved?.slice(0, 5);
+  const topPlays = data?.artists?.slice(0, 5) || [];
 
   const handlePauseClick = () => {
     dispatch(playPause(false));
@@ -108,11 +119,15 @@ const TopPlay = () => {
           {topPlays?.map((artist) => (
             <SwiperSlide
               key={artist?.idArtist}
-              style={{ width: 'auto', height: 'auto' }}
+              style={{ width: "auto", height: "auto" }}
               className="shadow-lg rounded-full animate-slideright"
             >
               <Link to={`/artists/${artist?.idArtist}`}>
-                <img src={artist?.strArtistThumb} alt="Name" className="rounded-full w-[80px] object-cover" />
+                <img
+                  src={artist?.strArtistThumb}
+                  alt="Name"
+                  className="rounded-full w-[80px] object-cover"
+                />
               </Link>
             </SwiperSlide>
           ))}

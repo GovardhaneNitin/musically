@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Error, Loader, SongCard } from "../components";
 import { genres } from "../assets/constants";
-import { useGetTopChartsQuery } from '../redux/services/theAudioDb';
+import { useGetTopChartsQuery } from "../redux/services/theAudioDb";
 
 const Discover = () => {
   const { activeSong, isPlaying } = useSelector((state) => state.player);
@@ -21,16 +21,11 @@ const Discover = () => {
       </div>
 
       <div className="flex flex-wrap sm:justify-start justify-center gap-8">
-        {data?.loved?.map((song, i) => (
-          <SongCard
-            key={song.idTrack}
-            song={song}
-            isPlaying={isPlaying}
-            activeSong={activeSong}
-            data={data}
-            i={i}
-          />
-        ))}
+        {data?.artists?.[0]?.strAlbum ? (
+          <p className="text-white">Artist data available</p>
+        ) : (
+          <p className="text-white">Loading tracks...</p>
+        )}
       </div>
     </div>
   );

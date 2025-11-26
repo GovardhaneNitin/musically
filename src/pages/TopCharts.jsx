@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import { Error, Loader, SongCard } from "../components";
-import { useGetTopChartsQuery } from '../redux/services/theAudioDb';
+import { useGetTopChartsQuery } from "../redux/services/theAudioDb";
 
 const TopCharts = () => {
   const { data, isFetching, error } = useGetTopChartsQuery();
@@ -19,9 +19,9 @@ const TopCharts = () => {
       </h2>
 
       <div className="flex flex-wrap sm:justify-start justify-center gap-8">
-        {data?.loved?.map((song, i) => (
+        {data?.artists?.map((song, i) => (
           <SongCard
-            key={song.idTrack}
+            key={song.idArtist}
             song={song}
             isPlaying={isPlaying}
             activeSong={activeSong}

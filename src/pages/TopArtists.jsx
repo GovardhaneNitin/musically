@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ArtistCard, Error, Loader } from "../components";
-import { useGetTopChartsQuery } from '../redux/services/theAudioDb';
+import { useGetTopChartsQuery } from "../redux/services/theAudioDb";
 
 const TopArtists = () => {
   const { data, isFetching, error } = useGetTopChartsQuery();
@@ -17,8 +17,8 @@ const TopArtists = () => {
       </h2>
 
       <div className="flex flex-wrap sm:justify-start justify-center gap-8">
-        {data?.loved?.map((track) => (
-          <ArtistCard key={track.idTrack} track={track} />
+        {data?.artists?.map((track) => (
+          <ArtistCard key={track.idArtist} track={track} />
         ))}
       </div>
     </div>

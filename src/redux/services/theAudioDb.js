@@ -1,21 +1,21 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const apiKey = '2';
+const apiKey = "2";
 
 export const theAudioDbApi = createApi({
-  reducerPath: 'theAudioDbApi',
+  reducerPath: "theAudioDbApi",
   baseQuery: fetchBaseQuery({
     baseUrl: `https://www.theaudiodb.com/api/v1/json/${apiKey}`,
   }),
   endpoints: (builder) => ({
     getTopCharts: builder.query({
-      query: () => '/mostloved.php?format=track',
+      query: () => "/search.php?s=coldplay",
     }),
     getSongsByCountry: builder.query({
-      query: (country) => `/trending.php?country=${country}&type=itunes&format=singles`,
+      query: (country) => "/search.php?s=drake",
     }),
     getSongsBySearch: builder.query({
-      query: (searchTerm) => `/searchtrack.php?s=coldplay&t=${searchTerm}`,
+      query: (searchTerm) => `/searchtrack.php?s=${searchTerm}`,
     }),
     getArtistDetails: builder.query({
       query: (artistId) => `/artist.php?i=${artistId}`,
@@ -24,8 +24,8 @@ export const theAudioDbApi = createApi({
       query: (songId) => `/track.php?h=${songId}`,
     }),
     getSongRelated: builder.query({
-        query: (songId) => `/track.php?h=${songId}`,
-      }),
+      query: (songId) => `/track.php?h=${songId}`,
+    }),
   }),
 });
 
