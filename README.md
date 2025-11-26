@@ -28,8 +28,7 @@ Welcome to Musically, your go-to music application with a clean and fully respon
 
 ## APIs 🌐
 
-- **Shazam Core API**: Gathering music data for a rich experience.
-- **IP Geolocation API**: Getting user location for personalized content.
+- **TheAudioDB API**: Gathering music data for a rich experience.
 
 ## Getting Started 🚀
 
@@ -68,7 +67,7 @@ Contributions are welcome! Feel free to open issues or create pull requests for 
 
 ## Acknowledgments 🙌
 
-- Special thanks to Shazam Core API and IP Geolocation API.
+- Special thanks to TheAudioDB API.
 - Gratitude to the open-source community.
 
 Let the music play! 🎶✨
