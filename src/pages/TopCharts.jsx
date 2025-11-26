@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import { Error, Loader, SongCard } from "../components";
-import { useGetTopChartsQuery } from "../redux/services/shazamCore";
+import { useGetTopChartsQuery } from '../redux/services/theAudioDb';
 
 const TopCharts = () => {
   const { data, isFetching, error } = useGetTopChartsQuery();
@@ -19,9 +19,9 @@ const TopCharts = () => {
       </h2>
 
       <div className="flex flex-wrap sm:justify-start justify-center gap-8">
-        {data.map((song, i) => (
+        {data?.loved?.map((song, i) => (
           <SongCard
-            key={song.key}
+            key={song.idTrack}
             song={song}
             isPlaying={isPlaying}
             activeSong={activeSong}
