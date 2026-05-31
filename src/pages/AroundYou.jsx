@@ -13,13 +13,11 @@ const CountryTracks = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `https://geo.ipify.org/api/v2/country?apiKey=at_22cgtqglqmsvFG6himSu1INTvevGP`
-      )
-      .then((res) => setCountry(res?.data?.location.country))
+      .get("https://ipapi.co/json/")
+      .then((res) => setCountry(res?.data?.country_code))
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
-  }, [country]);
+  }, []);
 
   if (isFetching && loading)
     return <Loader title="Loading Songs around you..." />;
